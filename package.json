@@ -1,0 +1,18 @@
+{
+  "name": "xpath-dom",
+  "version": "1.0.0",
+  "description": "Easily use XPath with the DOM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "xpath",
+    "dom",
+    "evaluate",
+    "html",
+    "nodes"
+  ],
+  "author": "Johann Hofmann <mail@johann-hofmann.com>",
+  "license": "MIT"
+}
