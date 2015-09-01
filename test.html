@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link href="node_modules/mocha/mocha.css" rel="stylesheet" />
+</head>
+<body>
+  <div id="test" style="display:none">
+    <span>First span</span>
+    <span>Second span</span>
+  </div>
+  <div id="mocha"></div>
+
+  <script src="node_modules/chai/chai.js"></script>
+  <script src="node_modules/mocha/mocha.js"></script>
+  <script src="build/xpath-dom.js"></script>
+
+  <script>
+    mocha.setup('tdd');
+    window.assert = chai.assert
+  </script>
+  <script src="/testem.js"></script>
+  <script>
+    suite('XPath-DOM', function() {
+      suite('find', function() {
+        test('finds elements relative to the body by default', function() {
+          assert.equal('DIV', xpath.find("div")[0].nodeName);
+        });
+        test('finds nested elements', function() {
+          assert.equal('First span', xpath.find("div/span[1]")[0].innerHTML);
+          assert.equal('Second span', xpath.find("div/span[2]")[0].innerHTML);
+        });
+        test('returns an array of multiple elements', function() {
+          assert.isArray(xpath.find("div/span"));
+          assert.equal('First span', xpath.find("div/span")[0].innerHTML);
+          assert.equal('Second span', xpath.find("div/span")[1].innerHTML);
+        });
+        test('allows for overriding the default root', function() {
+          assert.equal('Second span', xpath.find('span', xpath.find("div")[0])[1].innerHTML);
+          assert.equal(0, xpath.find('span').length);
+        });
+      });
+
+      suite('getXPath', function() {
+      });
+    });
+  </script>
+  <script>
+    mocha.checkLeaks();
+    mocha.run();
+  </script>
+</body>
+</html>
