@@ -11,7 +11,7 @@
     "build": "webpack index.js build/xpath-dom.js --debug --output-pathinfo --output-library=xpath --output-library-target=umd",
     "start": "webpack --watch index.js build/xpath-dom.js --debug --output-pathinfo --output-library=xpath --output-library-target=umd",
     "production": "webpack index.js dist/xpath-dom.min.js -p --output-library=xpath --output-library-target=umd",
-    "test": "testem ci -t test.html -s chrome"
+    "test": "testem ci --port 8080"
   },
   "keywords": [
     "xpath",

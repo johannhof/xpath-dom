@@ -1,0 +1,12 @@
+{
+  "test_page": "test.html",
+  "launchers": {
+    "sl_chrome": {
+      "command": "saucie --browserNameSL=chrome"
+    },
+    "sl_firefox": {
+      "command": "saucie --browserNameSL=firefox"
+    }
+  },
+  "launch_in_ci": ["sl_chrome", "sl_firefox"]
+}
