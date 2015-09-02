@@ -56,6 +56,18 @@
       });
 
       suite('getXPath', function() {
+        test('converts a node into an xpath', function() {
+          assert.equal('div', xpath.getXPath(xpath.find("div")));
+        });
+        test('gets nested nodes', function() {
+          assert.equal('div/h1/span', xpath.getXPath(xpath.find("div/h1/span")));
+        });
+        test('gets siblings', function() {
+          assert.equal('div/span[2]', xpath.getXPath(xpath.find("div/span[2]")));
+        });
+        test('leaves out [1]', function() {
+          assert.equal('div/span', xpath.getXPath(xpath.find("div/span[1]")));
+        });
       });
     });
   </script>
