@@ -6,7 +6,13 @@
     },
     "sl_firefox": {
       "command": "saucie --browserNameSL=firefox"
+    },
+    "sl_safari": {
+      "command": "saucie --browserNameSL=safari"
+    },
+    "sl_ie": {
+      "command": "saucie --browserNameSL=ie"
     }
   },
-  "launch_in_ci": ["sl_chrome", "sl_firefox"]
+  "launch_in_ci": ["sl_chrome", "sl_firefox", "sl_safari", "sl_ie"]
 }
