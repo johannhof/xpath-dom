@@ -6,8 +6,17 @@
 </head>
 <body>
   <div id="test" style="display:none">
+    <div>
+      <h2>Header 2!</h2>
+    </div>
+    <div>Wot</div>
     <span>First span</span>
     <span>Second span</span>
+    <h1>
+      <span>
+        Header!
+      </span>
+    </h1>
   </div>
   <div id="mocha"></div>
 
@@ -24,20 +33,25 @@
     suite('XPath-DOM', function() {
       suite('find', function() {
         test('finds elements relative to the body by default', function() {
-          assert.equal('DIV', xpath.find("div")[0].nodeName);
+          assert.equal('DIV', xpath.find("div").nodeName);
         });
         test('finds nested elements', function() {
-          assert.equal('First span', xpath.find("div/span[1]")[0].innerHTML);
-          assert.equal('Second span', xpath.find("div/span[2]")[0].innerHTML);
+          assert.equal('First span', xpath.find("div/span[1]").innerHTML);
+          assert.equal('Second span', xpath.find("div/span[2]").innerHTML);
         });
+        test('does not require [1] for the first element', function() {
+          assert.equal('Header 2!', xpath.find("div/div/h2").innerHTML);
+        });
+      });
+      suite('findAll', function() {
         test('returns an array of multiple elements', function() {
-          assert.isArray(xpath.find("div/span"));
-          assert.equal('First span', xpath.find("div/span")[0].innerHTML);
-          assert.equal('Second span', xpath.find("div/span")[1].innerHTML);
+          assert.isArray(xpath.findAll("div/span"));
+          assert.equal('First span', xpath.findAll("div/span")[0].innerHTML);
+          assert.equal('Second span', xpath.findAll("div/span")[1].innerHTML);
         });
         test('allows for overriding the default root', function() {
-          assert.equal('Second span', xpath.find('span', xpath.find("div")[0])[1].innerHTML);
-          assert.equal(0, xpath.find('span').length);
+          assert.equal('Second span', xpath.findAll('span', xpath.findAll("div")[0])[1].innerHTML);
+          assert.equal(0, xpath.findAll('span').length);
         });
       });
 

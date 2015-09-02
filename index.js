@@ -1,4 +1,8 @@
 exports.find = function(expression, relativeTo) {
+  return exports.findAll(expression, relativeTo)[0];
+};
+
+exports.findAll = function(expression, relativeTo) {
   var snapshot = document.evaluate(
     expression,
     relativeTo || document.body,
