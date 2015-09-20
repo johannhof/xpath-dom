@@ -1,4 +1,4 @@
-# xpath-dom [![](https://travis-ci.org/johannhof/xpath-dom.svg)](https://travis-ci.org/johannhof/xpath-dom)
+# xpath-dom [![](https://travis-ci.org/johannhof/xpath-dom.svg)](https://travis-ci.org/johannhof/xpath-dom) [![](https://img.shields.io/npm/v/xpath-dom.svg)](https://www.npmjs.com/package/xpath-dom)
 Easily use XPath with the DOM
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/xpath-dom.svg)](https://saucelabs.com/u/xpath-dom)
