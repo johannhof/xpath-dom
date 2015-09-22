@@ -1,6 +1,6 @@
 {
   "name": "xpath-dom",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Easily use XPath with the DOM",
   "main": "index.js",
   "repository": {
