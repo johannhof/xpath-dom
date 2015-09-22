@@ -37,8 +37,7 @@ exports.getXPath = function(node, relativeTo) {
         position++;
       }
     }
-    var pos = position > 1 ? "[" + position + "]" : '';
-    path = node.nodeName + pos + '/' + path;
+    path = node.nodeName + "[" + position + "]" + '/' + path;
     node = node.parentNode;
   }
 
