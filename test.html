@@ -26,6 +26,7 @@
   <script src="build/xpath-dom.js"></script>
 
   <script>
+    wgxpath.install()
     mocha.setup('tdd');
     window.assert = chai.assert
   </script>
@@ -66,8 +67,17 @@
         test('gets siblings', function() {
           assert.equal('div/span[2]', xpath.getXPath(xpath.find("div/span[2]")));
         });
-        test('leaves out [1]', function() {
-          assert.equal('div/span', xpath.getXPath(xpath.find("div/span[1]")));
+      });
+
+      suite('getUniqueXPath', function() {
+        test('converts a node into an xpath', function() {
+          assert.equal('div[1]', xpath.getUniqueXPath(xpath.find("div")));
+        });
+        test('gets nested nodes', function() {
+          assert.equal('div[1]/h1[1]/span[1]', xpath.getUniqueXPath(xpath.find("div/h1/span")));
+        });
+        test('gets siblings', function() {
+          assert.equal('div[1]/span[2]', xpath.getUniqueXPath(xpath.find("div/span[2]")));
         });
       });
     });

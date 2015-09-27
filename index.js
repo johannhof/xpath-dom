@@ -1,5 +1,12 @@
 exports.find = function(expression, relativeTo) {
-  return exports.findAll(expression, relativeTo)[0];
+  var snapshot = document.evaluate(
+    expression,
+    relativeTo || document.body,
+    null,
+    XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+    null
+  );
+  return snapshot.snapshotItem(0);
 };
 
 exports.findAll = function(expression, relativeTo) {
@@ -19,7 +26,11 @@ exports.findAll = function(expression, relativeTo) {
   return nodes;
 };
 
-exports.getXPath = function(node, relativeTo) {
+exports.getUniqueXPath = function(node, relativeTo){
+  return exports.getXPath(node, relativeTo, true);
+};
+
+exports.getXPath = function(node, relativeTo, unique) {
   relativeTo = relativeTo || document.body;
   var lookBreaker = 0;
   var path = '';
@@ -37,7 +48,12 @@ exports.getXPath = function(node, relativeTo) {
         position++;
       }
     }
-    var pos = position > 1 ? "[" + position + "]" : '';
+    var pos;
+    if(unique){
+      pos = "[" + position + "]";
+    }else{
+      pos = position > 1 ? "[" + position + "]" : '';
+    }
     path = node.nodeName + pos + '/' + path;
     node = node.parentNode;
   }
