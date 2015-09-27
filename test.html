@@ -26,6 +26,7 @@
   <script src="build/xpath-dom.js"></script>
 
   <script>
+    wgxpath.install()
     mocha.setup('tdd');
     window.assert = chai.assert
   </script>
@@ -58,13 +59,25 @@
 
       suite('getXPath', function() {
         test('converts a node into an xpath', function() {
-          assert.equal('div[1]', xpath.getXPath(xpath.find("div")));
+          assert.equal('div', xpath.getXPath(xpath.find("div")));
         });
         test('gets nested nodes', function() {
-          assert.equal('div[1]/h1[1]/span[1]', xpath.getXPath(xpath.find("div/h1/span")));
+          assert.equal('div/h1/span', xpath.getXPath(xpath.find("div/h1/span")));
         });
         test('gets siblings', function() {
-          assert.equal('div[1]/span[2]', xpath.getXPath(xpath.find("div/span[2]")));
+          assert.equal('div/span[2]', xpath.getXPath(xpath.find("div/span[2]")));
+        });
+      });
+
+      suite('getUniqueXPath', function() {
+        test('converts a node into an xpath', function() {
+          assert.equal('div[1]', xpath.getUniqueXPath(xpath.find("div")));
+        });
+        test('gets nested nodes', function() {
+          assert.equal('div[1]/h1[1]/span[1]', xpath.getUniqueXPath(xpath.find("div/h1/span")));
+        });
+        test('gets siblings', function() {
+          assert.equal('div[1]/span[2]', xpath.getUniqueXPath(xpath.find("div/span[2]")));
         });
       });
     });
