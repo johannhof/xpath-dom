@@ -12,7 +12,16 @@
     },
     "sl_ie": {
       "command": "saucie --browserNameSL=\"internet explorer\""
+    },
+    "sl_ie_10": {
+      "command": "saucie --versionSL=\"10\" --browserNameSL=\"internet explorer\""
+    },
+    "sl_ie_9": {
+      "command": "saucie --versionSL=\"9\" --browserNameSL=\"internet explorer\""
+    },
+    "sl_ie_8": {
+      "command": "saucie --versionSL=\"8\" --browserNameSL=\"internet explorer\""
     }
   },
-  "launch_in_ci": ["sl_chrome", "sl_firefox", "sl_safari", "sl_ie"]
+  "launch_in_ci": ["sl_chrome", "sl_firefox", "sl_safari", "sl_ie", "sl_ie_10", "sl_ie_9", "sl_ie_8"]
 }
