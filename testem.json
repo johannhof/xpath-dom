@@ -7,6 +7,12 @@
     "sl_firefox": {
       "command": "saucie --browserNameSL=firefox"
     },
+    "sl_firefox_40": {
+      "command": "saucie --versionSL=\"40\" --browserNameSL=firefox"
+    },
+    "sl_firefox_39": {
+      "command": "saucie --versionSL=\"39\" --browserNameSL=firefox"
+    },
     "sl_safari": {
       "command": "saucie --browserNameSL=safari"
     },
@@ -23,5 +29,5 @@
       "command": "saucie --versionSL=\"8\" --browserNameSL=\"internet explorer\""
     }
   },
-  "launch_in_ci": ["sl_chrome", "sl_firefox", "sl_safari", "sl_ie", "sl_ie_10", "sl_ie_9", "sl_ie_8"]
+  "launch_in_ci": ["sl_chrome", "sl_firefox_39", "sl_firefox_40", "sl_firefox", "sl_safari", "sl_ie_8", "sl_ie_9", "sl_ie_10", "sl_ie"]
 }
