@@ -13,8 +13,20 @@
     "sl_firefox_39": {
       "command": "saucie --versionSL=\"39\" --browserNameSL=firefox"
     },
-    "sl_safari": {
-      "command": "saucie --browserNameSL=safari"
+    "sl_safari_8": {
+      "command": "saucie --versionSL=\"8\" --browserNameSL=safari"
+    },
+    "sl_safari_7": {
+      "command": "saucie --versionSL=\"7\" --browserNameSL=safari"
+    },
+    "sl_safari_6": {
+      "command": "saucie --versionSL=\"6\" --browserNameSL=safari"
+    },
+    "sl_iphone": {
+      "command": "saucie --browserNameSL=iphone"
+    },
+    "sl_android": {
+      "command": "saucie --browserNameSL=android"
     },
     "sl_ie": {
       "command": "saucie --browserNameSL=\"internet explorer\""
@@ -29,5 +41,19 @@
       "command": "saucie --versionSL=\"8\" --browserNameSL=\"internet explorer\""
     }
   },
-  "launch_in_ci": ["sl_chrome", "sl_firefox_39", "sl_firefox_40", "sl_firefox", "sl_safari", "sl_ie_8", "sl_ie_9", "sl_ie_10", "sl_ie"]
+  "launch_in_ci": [
+    "sl_chrome",
+    "sl_firefox_39",
+    "sl_firefox_40",
+    "sl_firefox",
+    "sl_safari_6",
+    "sl_safari_7",
+    "sl_safari_8",
+    "sl_iphone",
+    "sl_android",
+    "sl_ie_8",
+    "sl_ie_9",
+    "sl_ie_10",
+    "sl_ie"
+  ]
 }
