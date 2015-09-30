@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <title>XPath-DOM Tests</title>
-  <link href="vendor/mocha.css" rel="stylesheet" />
+  <link href="vendor/qunit-1.19.0.css" rel="stylesheet" />
 </head>
 <body>
   <div id="test" style="display:none">
@@ -18,73 +18,61 @@
       </span>
     </h1>
   </div>
-  <div id="mocha"></div>
+  <div id="qunit"></div>
 
-  <script src="vendor/chai.js"></script>
-  <script src="vendor/mocha.js"></script>
+  <script src="vendor/qunit-1.19.0.js"></script>
   <script src="vendor/wgxpath.js"></script>
   <script src="build/xpath-dom.js"></script>
 
   <script>
     wgxpath.install()
-    mocha.setup('tdd');
-    window.assert = chai.assert
   </script>
   <script src="/testem.js"></script>
   <script>
-    suite('XPath-DOM', function() {
-      suite('find', function() {
-        test('finds elements relative to the body by default', function() {
-          assert.equal('DIV', xpath.find("div").nodeName);
-        });
-        test('finds nested elements', function() {
-          assert.equal('First span', xpath.find("div/span[1]").innerHTML);
-          assert.equal('Second span', xpath.find("div/span[2]").innerHTML);
-        });
-        test('does not require [1] for the first element', function() {
-          assert.equal('Header 2!', xpath.find("div/div/h2").innerHTML);
-        });
-      });
-      suite('findAll', function() {
-        test('returns an array of multiple elements', function() {
-          assert.isArray(xpath.findAll("div/span"));
-          assert.equal('First span', xpath.findAll("div/span")[0].innerHTML);
-          assert.equal('Second span', xpath.findAll("div/span")[1].innerHTML);
-        });
-        test('allows for overriding the default root', function() {
-          assert.equal('Second span', xpath.findAll('span', xpath.findAll("div")[0])[1].innerHTML);
-          assert.equal(0, xpath.findAll('span').length);
-        });
-      });
-
-      suite('getXPath', function() {
-        test('converts a node into an xpath', function() {
-          assert.equal('div', xpath.getXPath(xpath.find("div")));
-        });
-        test('gets nested nodes', function() {
-          assert.equal('div/h1/span', xpath.getXPath(xpath.find("div/h1/span")));
-        });
-        test('gets siblings', function() {
-          assert.equal('div/span[2]', xpath.getXPath(xpath.find("div/span[2]")));
-        });
-      });
-
-      suite('getUniqueXPath', function() {
-        test('converts a node into an xpath', function() {
-          assert.equal('div[1]', xpath.getUniqueXPath(xpath.find("div")));
-        });
-        test('gets nested nodes', function() {
-          assert.equal('div[1]/h1[1]/span[1]', xpath.getUniqueXPath(xpath.find("div/h1/span")));
-        });
-        test('gets siblings', function() {
-          assert.equal('div[1]/span[2]', xpath.getUniqueXPath(xpath.find("div/span[2]")));
-        });
-      });
+    QUnit.module('find');
+    QUnit.test('finds elements relative to the body by default', function(assert) {
+      assert.equal('DIV', xpath.find("div").nodeName);
     });
-  </script>
-  <script>
-    mocha.checkLeaks();
-    mocha.run();
+    QUnit.test('finds nested elements', function(assert) {
+      assert.equal('First span', xpath.find("div/span[1]").innerHTML);
+      assert.equal('Second span', xpath.find("div/span[2]").innerHTML);
+    });
+    QUnit.test('does not require [1] for the first element', function(assert) {
+      assert.equal('Header 2!', xpath.find("div/div/h2").innerHTML);
+    });
+
+    QUnit.module('findAll');
+    QUnit.test('returns an array of multiple elements', function(assert) {
+      assert.ok(xpath.findAll("div/span").length);
+      assert.equal('First span', xpath.findAll("div/span")[0].innerHTML);
+      assert.equal('Second span', xpath.findAll("div/span")[1].innerHTML);
+    });
+    QUnit.test('allows for overriding the default root', function(assert) {
+      assert.equal('Second span', xpath.findAll('span', xpath.findAll("div")[0])[1].innerHTML);
+      assert.equal(0, xpath.findAll('span').length);
+    });
+
+    QUnit.module('getXPath');
+    QUnit.test('converts a node into an xpath', function(assert) {
+      assert.equal('div', xpath.getXPath(xpath.find("div")));
+    });
+    QUnit.test('gets nested nodes', function(assert) {
+      assert.equal('div/h1/span', xpath.getXPath(xpath.find("div/h1/span")));
+    });
+    QUnit.test('gets siblings', function(assert) {
+      assert.equal('div/span[2]', xpath.getXPath(xpath.find("div/span[2]")));
+    });
+
+    QUnit.module('getUniqueXPath')
+    QUnit.test('converts a node into an xpath', function(assert) {
+      assert.equal('div[1]', xpath.getUniqueXPath(xpath.find("div")));
+    });
+    QUnit.test('gets nested nodes', function(assert) {
+      assert.equal('div[1]/h1[1]/span[1]', xpath.getUniqueXPath(xpath.find("div/h1/span")));
+    });
+    QUnit.test('gets siblings', function(assert) {
+      assert.equal('div[1]/span[2]', xpath.getUniqueXPath(xpath.find("div/span[2]")));
+    });
   </script>
 </body>
 </html>
