@@ -5,6 +5,13 @@ Easily use XPath with the DOM
 npm install xpath-dom --save
 ```
 
+## Browser Compatibility
+
+All browsers support XPath really well except for IE.
+For IE support please use Google's awesome [wicked-good-xpath](https://github.com/google/wicked-good-xpath/) shim.
+
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/xpath-dom.svg)](https://saucelabs.com/u/xpath-dom)
+
 ## Usage
 
 ```js
@@ -52,8 +59,4 @@ Can be passed a DOM node to set as relative root node.
 ```js
 xpath.getUniqueXPath(document.getElementById("headline"))
 ```
-
-## Browser Compatibility
-
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/xpath-dom.svg)](https://saucelabs.com/u/xpath-dom)
 
