@@ -40,6 +40,9 @@
     QUnit.test('does not require [1] for the first element', function(assert) {
       assert.equal('Header 2!', xpath.find("div/div/h2").innerHTML);
     });
+    QUnit.test('allows for overriding the default root', function(assert) {
+      assert.equal('Second span', xpath.find('span[2]', xpath.find("div")).innerHTML);
+    });
 
     QUnit.module('findAll');
     QUnit.test('returns an array of multiple elements', function(assert) {
@@ -48,7 +51,7 @@
       assert.equal('Second span', xpath.findAll("div/span")[1].innerHTML);
     });
     QUnit.test('allows for overriding the default root', function(assert) {
-      assert.equal('Second span', xpath.findAll('span', xpath.findAll("div")[0])[1].innerHTML);
+      assert.equal('Second span', xpath.findAll('span', xpath.find("div"))[1].innerHTML);
       assert.equal(0, xpath.findAll('span').length);
     });
 
@@ -62,6 +65,9 @@
     QUnit.test('gets siblings', function(assert) {
       assert.equal('div/span[2]', xpath.getXPath(xpath.find("div/span[2]")));
     });
+    QUnit.test('allows for overriding the default root', function(assert) {
+      assert.equal('span', xpath.getXPath(xpath.find("div/h1/span"), xpath.find("div/h1")));
+    });
 
     QUnit.module('getUniqueXPath')
     QUnit.test('converts a node into an xpath', function(assert) {
@@ -72,6 +78,9 @@
     });
     QUnit.test('gets siblings', function(assert) {
       assert.equal('div[1]/span[2]', xpath.getUniqueXPath(xpath.find("div/span[2]")));
+    });
+    QUnit.test('allows for overriding the default root', function(assert) {
+      assert.equal('span[1]', xpath.getUniqueXPath(xpath.find("div/h1/span"), xpath.find("div/h1")));
     });
   </script>
 </body>
