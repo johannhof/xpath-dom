@@ -22,20 +22,24 @@ var xpath = require('xpath-dom');
 
 Finds a DOM node by the specified XPath. Returns the first Node that matches the path.
 
-Can be passed a DOM node to set as relative root node.
+Can be passed a DOM node to set as the relative root node.
 
 ```js
 xpath.find("div/span[1]")
 ```
 
+```js
+xpath.find("div/span[1]", document.getElementById('main'))
+```
+
 ### xpath.findAll(expression [, relativeTo])
 
-Finds all DOM nodes that match specified XPath.
+Finds all DOM nodes that match the specified XPath.
 
-Can be passed a DOM node to set as relative root node.
+Can be passed a DOM node to set as the relative root node.
 
 ```js
-xpath.find("div/span[1]")
+xpath.findAll("div/span[1]")
 ```
 
 ### xpath.getXPath(node [, relativeTo])
@@ -44,7 +48,7 @@ Returns a concise XPath given a DOM node. The XPath will match the given node,
 but it is not guaranteed to uniquely match that node, e.g. there might
 be other nodes that will be matched by that XPath in the document.
 
-Can be passed a DOM node to set as relative root node.
+Can be passed a DOM node to set as the relative root node.
 
 ```js
 xpath.getXPath(document.getElementById("headline"))
@@ -54,7 +58,7 @@ xpath.getXPath(document.getElementById("headline"))
 
 Returns a unique but slightly more verbose XPath given a DOM node.
 
-Can be passed a DOM node to set as relative root node.
+Can be passed a DOM node to set as the relative root node.
 
 ```js
 xpath.getUniqueXPath(document.getElementById("headline"))
