@@ -1,23 +1,26 @@
 {
   "test_page": "test.html",
   "launchers": {
-    "sl_chrome_43": {
-      "command": "saucie --versionSL=\"43\" --browserNameSL=chrome"
+    "sl_chrome_1": {
+      "command": "saucie --versionSL=\"1\" --browserNameSL=chrome"
     },
-    "sl_chrome_44": {
-      "command": "saucie --versionSL=\"44\" --browserNameSL=chrome"
+    "sl_chrome_2": {
+      "command": "saucie --versionSL=\"2\" --browserNameSL=chrome"
     },
     "sl_chrome": {
       "command": "saucie --browserNameSL=chrome"
     },
+    "sl_opera": {
+      "command": "saucie --browserNameSL=opera"
+    },
     "sl_firefox": {
       "command": "saucie --browserNameSL=firefox"
     },
-    "sl_firefox_40": {
-      "command": "saucie --versionSL=\"40\" --browserNameSL=firefox"
+    "sl_firefox_1_5": {
+      "command": "saucie --versionSL=\"1.5\" --browserNameSL=firefox"
     },
-    "sl_firefox_39": {
-      "command": "saucie --versionSL=\"39\" --browserNameSL=firefox"
+    "sl_firefox_3": {
+      "command": "saucie --versionSL=\"3\" --browserNameSL=firefox"
     },
     "sl_safari_8": {
       "command": "saucie --versionSL=\"8\" --browserNameSL=safari"
@@ -36,6 +39,9 @@
     },
     "sl_iphone": {
       "command": "saucie --browserNameSL=iphone"
+    },
+    "sl_ipad": {
+      "command": "saucie --browserNameSL=ipad"
     },
     "sl_android_5": {
       "command": "saucie --versionSL=\"5\" --browserNameSL=android"
@@ -57,11 +63,11 @@
     }
   },
   "launch_in_ci": [
-    "sl_chrome_43",
-    "sl_chrome_44",
+    "sl_chrome_1",
+    "sl_chrome_2",
     "sl_chrome",
-    "sl_firefox_39",
-    "sl_firefox_40",
+    "sl_firefox_1_5",
+    "sl_firefox_3",
     "sl_firefox",
     "sl_safari_6",
     "sl_safari_7",
@@ -69,6 +75,7 @@
     "sl_iphone_6",
     "sl_iphone_7",
     "sl_iphone",
+    "sl_ipad",
     "sl_android_5",
     "sl_android",
     "sl_ie_8",

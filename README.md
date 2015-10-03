@@ -5,6 +5,10 @@ Easily use XPath with the DOM
 npm install xpath-dom --save
 ```
 
+```
+<script src="https://cdn.rawgit.com/johannhof/xpath-dom/master/dist/xpath-dom.min.js"></script>
+```
+
 ## Browser Compatibility
 
 All browsers support XPath really well except for IE.
@@ -13,6 +17,8 @@ For IE support please use Google's awesome [wicked-good-xpath](https://github.co
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/xpath-dom.svg)](https://saucelabs.com/u/xpath-dom)
 
 ## Usage
+
+xpath-dom supports AMD, CommonJS and includes via script tag, where it exposes the `xpath` global.
 
 ```js
 var xpath = require('xpath-dom');
