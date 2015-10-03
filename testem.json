@@ -37,8 +37,8 @@
     "sl_iphone": {
       "command": "saucie --browserNameSL=iphone"
     },
-    "sl_android_4": {
-      "command": "saucie --versionSL=\"4\" --browserNameSL=android"
+    "sl_android_5": {
+      "command": "saucie --versionSL=\"5\" --browserNameSL=android"
     },
     "sl_android": {
       "command": "saucie --browserNameSL=android"
@@ -69,7 +69,7 @@
     "sl_iphone_6",
     "sl_iphone_7",
     "sl_iphone",
-    "sl_android_4",
+    "sl_android_5",
     "sl_android",
     "sl_ie_8",
     "sl_ie_9",
