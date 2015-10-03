@@ -5,7 +5,7 @@ Easily use XPath with the DOM
 npm install xpath-dom --save
 ```
 
-```
+```html
 <script src="https://cdn.rawgit.com/johannhof/xpath-dom/master/dist/xpath-dom.min.js"></script>
 ```
 
