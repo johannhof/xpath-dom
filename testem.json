@@ -10,17 +10,11 @@
     "sl_firefox": {
       "command": "saucie --browserNameSL=firefox"
     },
-    "sl_firefox_3": {
-      "command": "saucie --versionSL=\"3\" --browserNameSL=firefox"
-    },
     "sl_safari_8": {
       "command": "saucie --versionSL=\"8\" --browserNameSL=safari"
     },
     "sl_safari_7": {
       "command": "saucie --versionSL=\"7\" --browserNameSL=safari"
-    },
-    "sl_safari_6": {
-      "command": "saucie --versionSL=\"6\" --browserNameSL=safari"
     },
     "sl_iphone_6": {
       "command": "saucie --versionSL=\"6\" --browserNameSL=iphone"
@@ -51,16 +45,11 @@
     },
     "sl_ie_8": {
       "command": "saucie --versionSL=\"8\" --browserNameSL=\"internet explorer\""
-    },
-    "sl_edge": {
-      "command": "saucie --browserNameSL=\"edge\""
     }
   },
   "launch_in_ci": [
     "sl_chrome",
-    "sl_firefox_3",
     "sl_firefox",
-    "sl_safari_6",
     "sl_safari_7",
     "sl_safari_8",
     "sl_iphone_6",
@@ -72,7 +61,6 @@
     "sl_ie_8",
     "sl_ie_9",
     "sl_ie_10",
-    "sl_ie",
-    "sl_edge"
+    "sl_ie"
   ]
 }
