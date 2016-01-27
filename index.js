@@ -39,6 +39,10 @@ exports.getXPath = function(node, relativeTo, unique) {
       throw new Error('Got to maximum traversal level without reaching the root node.');
     }
     var position = 1;
+    
+    if (node.parentNode === undefined || node.parentNode === null)
+      break;
+    
     var siblings = node.parentNode.children;
     for (var i = 0; i < siblings.length; i++) {
       if(siblings[i] === node){
